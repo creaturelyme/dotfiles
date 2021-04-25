@@ -1,0 +1,38 @@
+xterm*faceName: Monospace:size=10:antialias=true
+Xterm*allowBoldFonts: true
+! xterm*geometry: 80x25
+xterm*termName:xterm-256color
+XTERM*termName: xterm-256color
+UXTerm*termName: xterm-256color
+! Lighter Black & Gray
+xterm*background: #262626
+! xterm*background: #0c0c0c
+xterm*foreground: #aaaaaa
+! Black & Dark Grey
+xterm*color0: #000000
+xterm*color8: #555555
+! Dark Red & Red
+xterm*color1: #aa0000
+xterm*color9: #ff5555
+! Dark Green & Green
+xterm*color2: #00aa00
+xterm*color10: #55ff55
+! Dark Yellow & Yellow
+xterm*color3: #aa5500
+xterm*color11: #ffff55
+! Dark Blue & Blue
+xterm*color4: #000aa
+xterm*color12: #5555ff
+! Dark Magenta & Magenta
+xterm*color5: #aa00aa
+xterm*color13: #ff55ff
+! Dark Cyan & Cyan
+xterm*color6: #00aaaa
+xterm*color14: #55ffff
+! Light Gray & White
+xterm*color7: #aaaaaa
+xterm*color15: #ffffff
+xterm*cursorColor: #ffa530
+xterm*VT100.Translations: #override \
+	Ctrl Shift <Key>V:	insert-selection(CLIPBOARD) \n\
+	Ctrl Shift <Key>C:	copy-selection(CLIPBOARD)
