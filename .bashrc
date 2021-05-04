@@ -1,10 +1,23 @@
 #!/bin/bash
-# ~.bashrc
+# ~.bashrc: a simple configuration script to make the shell environment look and act the way I prefer
 
+# Activate other user configuration scripts
 . ~/.keydirs
 . ~/.aliases
 . ~/.functions
+eval "$(.dircolors ~/)"
 
-export LSCOLORS='exfxcxdxbxegedabagacad'
-PS1='\033[38;5;237m\@\033[0m\n\033[38;5;059m\w \033[0m\033[38;5;214m\$\033[0m '
-# -->  ;###m ---> 256 color code
+# Make sure terminal & prompt set correctly
+TERM=xterm-256color
+PS1='${grey}\@\n${blue}\w ${orange}\$${norm} '
+BASH_SILENCE_DEPRECATION_WARNING=1
+
+# Exports
+export TERM PS1 BASH_SILENCE_DEPRECATION_WARNING
+
+# Welcome message
+clear
+printf "${norm}\n"
+printf "\t\tHi $atashi${norm},\n"
+printf "\t\t  It's ${kyou}.\n"
+printf "\t\t  You're in ${doko} using a ${koura} shell."
