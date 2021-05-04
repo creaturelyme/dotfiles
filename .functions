@@ -1,0 +1,16 @@
+#!/bin/bash                                                                 
+#~/.functions: short utility scripts 
+printcf () {
+case $1 in
+  "red") tput setaf 88;;
+  "green") tput setaf 22;;
+  "orange") tput setaf 166;;
+  "blue") tput setaf 17;;
+  "purple") tput setaf 97;;
+  "cyan") tput setaf 75;;
+  "gray" | "grey") tput setaf 245;;
+  "lgray") tput setaf 251;;
+esac
+printf "$2";
+tput sgr0
+}
