@@ -1,8 +1,8 @@
 #!bin/bash
 #~/.aliases
-alias ls='ls --color=auto'
+alias ls='ls -G'
 alias dir='dir --color=auto'
 alias grep='grep --color=auto'
-alias all='ls -A'
+alias all='ls -GA'
 alias ..='cd ..'
 alias dot='/usr/bin/git --git-dir=$HOME/.dot/ --work-tree=$HOME'
