@@ -1,8 +1,30 @@
 #!bin/bash
 #~/.aliases
+
+# Move & Look Around
 alias ls='ls -G'
 alias dir='dir --color=auto'
 alias grep='grep --color=auto'
 alias all='ls -GA'
 alias ..='cd ..'
+alias mkdir='mkdir -p'
+
 alias dot='/usr/bin/git --git-dir=$HOME/.dot/ --work-tree=$HOME'
+
+# Welcome Message Variables
+# Colors
+red=$(tput setaf 88)
+green=$(tput setaf 22)
+blue=$(tput setaf 17)
+orange=$(tput setaf 166)
+grey=$(tput setaf 251)
+mauve=$(tput setaf 138)
+norm=$(tput setaf 245)
+# Info you should already know...
+kyou=${mauve}$(date +"%A, %B %eth")${norm}
+cpwd=${blue}$(pwd)${norm}
+atashi=${orange}$(echo $USER | perl -pe 's/\b(.)/\u\1/g')${norm}
+koura=${green}$(echo $0 | perl -pe 's/\b(.)/\u\1/g' | sed "s/[-]//")${norm}
+
+# Exports
+export red green blue orange grey mauve norm doko kyou cpwd atashi koura
