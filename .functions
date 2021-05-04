@@ -1,34 +1,26 @@
 #!/bin/bash                                                                 
 #~/.functions: short utility scripts 
 
-###########################
-# Prints things in color  #
-###########################
-printcf () {
-# Sets the colors.
-    case $1 in
-       "red") tput setaf 88;;
-       "green") tput setaf 22;;
-       "orange") tput setaf 166;;
-       "blue") tput setaf 17;;
-       "purple") tput setaf 97;;
-       "cyan") tput setaf 75;;
-       "gray" | "grey") tput setaf 245;;
-       "lgray" | "lgrey") tput setaf 251;;
-    esac
-# Prints 2nd argument in the color
-    printf "$2";
-# Optional new line -- anything following the 2nd argument will trigger it
-    [[ ! -z "$3" ]] && echo 
-# Resets the color
-    tput sgr0
-}
-
 #########################
 #   Throw away things   #
 #########################
-trash (){
+# trash - moves items to Trash, asking for permission to overwrite files and 
+# announcing when items have been successfully moved.
+
+trash() {
 # eventually create option menu based on ls -A ... [[ -z $1 ]] && 
-  sudo mv $1 ~/.Trash/$1 && printcf red "I've moved $1 to the trash." b
+  sudo mv -i $1 ~/.Trash/$1 && printcf red "I've moved $1 to the trash." 
   echo
+}
+
+# remove - recursively deletes up to 4 directories, then lists all items deleted in 
+# well-formatted columns.
+# remove foo/bar foo.txt bar/foo bar.pdf        # can also specify filenames instead of directories
+
+remove() {
+        printf "\n\t${norm}I've deleted these items: \n${mauve}"
+        [[ ! -z "$4" ]] && printf "\n$(rm -rfv $4 | column -c `tput cols` | column -t | sed '1,$s/^/   /g')";
+        [[ ! -z "$3" ]] && printf "\n$(rm -rfv $3 | column -c `tput cols` | column -t | sed '1,$s/^/   /g')";
+        [[ ! -z "$2" ]] && printf "\n$(rm -rfv $2 | column -c `tput cols` | column -t | sed '1,$s/^/   /g')";
+        printf "\n$(rm -rfv $1 | column -c `tput cols` | column -t | sed '1,$s/^/   /g')\n";
 }
