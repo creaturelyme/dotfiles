@@ -9,13 +9,13 @@
 
 trash() {
 # eventually create option menu based on ls -A ... [[ -z $1 ]] && 
-  sudo mv -i $1 ~/.Trash/$1 && printcf red "I've moved $1 to the trash." 
+  sudo mv -i $1 ~/.Trash/$1 && printf "I've moved ${mauve}$1${norm} to the trash." 
   echo
 }
 
 # remove - recursively deletes up to 4 directories, then lists all items deleted in 
-# well-formatted columns.
-# remove foo/bar foo.txt bar/foo bar.pdf        # can also specify filenames instead of directories
+# formatted columns.
+# remove foo.txt bar/foo .foo/foo foo
 
 remove() {
         printf "\n\t${norm}I've deleted these items: \n${mauve}"
