@@ -16,8 +16,4 @@ BASH_SILENCE_DEPRECATION_WARNING=1
 export TERM PS1 BASH_SILENCE_DEPRECATION_WARNING
 
 # Welcome message
-clear
-printf "${norm}\n"
-printf "\t\tHi $atashi,\n"
-printf "\t\t  It's ${kyou}.\n"
-printf "\t\t  You're in ${doko} using a ${koura} shell."
+clear && printf "\n\t\tHi $atashi,\n\t\t  It's $kyou.\n\t\t  You're in $doko using a $koura shell."
